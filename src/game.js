@@ -2,7 +2,35 @@
 import Field from './field.js';
 import * as sound from './sound.js';
 
-export default class Game {
+//Builder Pattern
+//여기서 export는 해당 변수만 export 하는것이고
+// export default는 파일 전체를 export하는 것이다.
+export class GameBuilder {
+  withGameDuration(duration) {
+    this.gameDuration = duration;
+    console.log(this);
+    return this;
+  }
+
+  withCarrotCount(num) {
+    this.carrotCount = num;
+    console.log(this);
+    return this;
+  }
+
+  withBugCount(num) {
+    this.bugCount = num;
+    console.log(this);
+    return this;
+  }
+
+  build() {
+    console.log(this);
+    return new Game(this.gameDuration, this.carrotCount, this.bugCount);
+  }
+}
+
+class Game {
   constructor(gameDuration, carrotCount, bugCount) {
     this.gameDuration = gameDuration;
     this.carrotCount = carrotCount;
