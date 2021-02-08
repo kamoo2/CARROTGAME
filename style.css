@@ -86,6 +86,7 @@ body {
 .carrot {
   cursor: pointer;
   transition: transform 100ms ease-in;
+  user-select: none;
 }
 
 .bug:hover,
